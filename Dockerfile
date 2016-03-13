@@ -45,6 +45,10 @@ RUN sed -i "s/;date.timezone =.*/date.timezone = UTC/" /etc/php/7.0/cli/php.ini
 RUN sed -i -e "s/;daemonize\s*=\s*yes/daemonize = no/g" /etc/php/7.0/fpm/php-fpm.conf
 RUN sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/" /etc/php/7.0/fpm/php.ini
 
+# Install composer
+RUN php -r "readfile('https://getcomposer.org/installer');" | php
+RUN mv composer.phar /usr/local/bin/composer
+
 # Setup runit
 RUN mkdir -p        /server/http
 ADD files/default   /etc/nginx/sites-available/default
