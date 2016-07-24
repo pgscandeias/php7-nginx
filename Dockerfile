@@ -39,6 +39,7 @@ RUN DEBIAN_FRONTEND="noninteractive" apt-get install -y --fix-missing \
         php7.0-intl \
         php7.0-mysql \
         php7.0-pgsql \
+        php7.0-sqlite \
         php7.0-curl \
         php7.0-dev \
         php7.0-mbstring \
